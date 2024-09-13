@@ -1,0 +1,87 @@
+﻿@model TirelireVM
+<!--Tirelire-->
+<
+<form method="post" enctype="multipart/form-data">
+    @if(Model.Tirelire.Id!=0){
+        <input type="hidden" value="@Model.Tirelire.Id" name="Id"/>
+    }
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">
+                @(Model.Tirelire.Id!=0?"Editer":"Créer") un Tirelire
+            </h2>
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Tirelire.Title" class="p-0"></label>
+            <input asp-for="Tirelire.Title" type="text" class="form-control" />
+            <span asp-validation-for="Tirelire.Title" class="text-danger"></span>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Tirelire.Description" class="p-0"></label>
+            <input asp-for="Tirelire.Description" type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Tirelire.FabricantId" class="p-0"></label>
+            <select asp-for="Tirelire.FabricantId" asp-items="@Model.FabricantList" class="form-select">
+                <option disabled selected>--Select Fabricant--</option>
+            </select>
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Tirelire.ImageUrl" class="p-0"></label>
+            <input type="file" name="file" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Tirelire.Prix" class="p-0"></label>
+            <input asp-for="Tirelire.Prix" type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Tirelire.Width" class="p-0"></label>
+            <input asp-for="Tirelire.Width" type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Tirelire.Height" class="p-0"></label>
+            <input asp-for="Tirelire.Height" type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Tirelire.Longueur" class="p-0"></label>
+            <input asp-for="Tirelire.Longueur" type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Tirelire.Couleur" class="p-0"></label>
+            <input asp-for="Tirelire.Couleur" type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Tirelire.Poids" class="p-0"></label>
+            <input asp-for="Tirelire.Poids" type="text" class="form-control" />
+        </div>
+        <div class="mb-3 row p-1">
+            <label asp-for="Tirelire.Capacite" class="p-0"></label>
+            <input asp-for="Tirelire.Capacite" type="text" class="form-control" />
+        </div>
+        <div class="row">
+            <div class="col-6 col-md-3">
+                @if (Model.Tirelire.Id != 0)
+                {
+                    <button type="submit" class="btn btn-dark form-control">Editer</button>
+                }
+                else
+                {
+                    <button type="submit" class="btn btn-dark form-control">Créer</button>
+                }
+            </div>
+            <div class="col-6 col-md-3 ">
+                <a asp-controller="Tirelire" asp-action="Index" class="btn btn-secondary border form-control">
+                    Back to Tirelire
+                </a>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}

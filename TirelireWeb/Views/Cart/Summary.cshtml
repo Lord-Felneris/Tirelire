@@ -1,0 +1,89 @@
+﻿@model ShoppingCartVM
+
+<form method="post">
+	<br />
+	<div class="container">
+		<div class="card shadow border-0">
+
+			<div class="card-header bg-secondary bg-gradient text-light ml-0 py-4">
+				<div class="row px-4">
+					<div class="col-6">
+						<h5 class="pt-2 text-dark">
+							Resume Commande
+						</h5>
+					</div>
+					<div class="col-6 text-end">
+						<a asp-action="Index" class="btn btn-outline-danger btn-sm"><i class="bi bi-backspace"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="card-body">
+				<div class="container rounded p-2">
+					<div class="row">
+						<div class="col-12 col-lg-6 pb-4">
+							<div class="row">
+								<h4 class="d-flex justify-content-between align-items-center mb-3">
+									<span class="text-info">Commande Details:</span>
+								</h4>
+							</div>
+							<div class="row my-1">
+								<div class="col-3">
+									<label>Nom</label>
+								</div>
+								<div class="col-9">
+									<input asp-for="OrderHeader.Nom" class="form-control" />
+									<span asp-validation-for="OrderHeader.Nom" class="text-danger"></span>
+								</div>
+							</div>
+							<div class="row my-1">
+								<div class="col-3">
+									<label>Email</label>
+								</div>
+								<div class="col-9">
+									<input asp-for="OrderHeader.Email" class="form-control" />
+									<span asp-validation-for="OrderHeader.Email" class="text-danger"></span>
+								</div>
+							</div>
+						</div>
+						<div class="col-12 col-lg-5 offset-lg-1">
+							<h4 class="d-flex justify-content-between align-items-center mb-3">
+								<span class="text-info">Resume Commande:</span>
+							</h4>
+							<ul class="list-group mb-3">
+								@foreach(var details in Model.ShoppingCartList)
+								{
+									<li class="list-group-item d-flex justify-content-between">
+										<div>
+											<h6 class="my-0">@details.Produit.Title</h6>
+											<small class="text-muted">Quantite: @details.Count</small>
+										</div>
+										<span class="text-muted">@((details.Price*details.Count).ToString("c")) </span>
+									</li>
+								}
+
+
+								<li class="list-group-item d-flex justify-content-between bg-light">
+									<small class="text-info">Total (€)</small>
+									<strong class="text-info">@Model.OrderHeader.OrderTotal.ToString("c")</strong>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card-footer">
+				<div class="row">
+					<div class="col-12 col-md-8 pt-2">
+						<p style="color:maroon; font-size:14px;">
+							Date de livraison estimée:
+							@DateTime.Now.AddDays(7).ToShortDateString() - @DateTime.Now.AddDays(14).ToShortDateString()
+						</p>
+					</div>
+					<div class="col-12 col-md-4">
+						<button type="submit" value="Place Order" class="btn btn-primary form-control">Valide Commande</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Produit>
+
+<div class="row pb-3">
+    @foreach(var tirelire in Model)
+    {
+        <div class="col-lg-3 col-sm-6">
+            <div class="row p-2">
+                <div class="col-12 p-1">
+                    <div class="card border-0 border-top border-5 rounded shadow">
+                         <a asp-controller="Home" asp-action="Detail" asp-route-tirelireId="@tirelire.Id">
+                            <img src="@tirelire.ImageUrl" width="200" height="200" class="card-img-top rounded" />
+                         </a>
+                        <div class="card-body pb-0">
+                            <div class="pl-1">
+                                <p class="card-title h5 text-dark opacity-75 text-uppercase text-center">@tirelire.Title</p>
+                                <p class="card-title text-warning text-center">Fabricant : @tirelire.Fabricant?.Name</p>
+                            </div>
+                            <div class="pl-1">
+                                <p class="text-dark opacity-75 text-uppercase text-center">Prix: @tirelire.Prix.ToString("c")</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

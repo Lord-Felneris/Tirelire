@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TirelireWeb", "TirelireWeb\TirelireWeb.csproj", "{B9F24BF1-8BC8-464E-B36B-2DE0C49CD3F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tirelire.Data", "Tirelire.Data\Tirelire.Data.csproj", "{17019113-4209-4D02-B9E9-A3FB044AA9F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tirelire.Models", "Tirelire.Models\Tirelire.Models.csproj", "{7216394B-D006-40E8-8396-CE3EE0AB2C42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tirelire.Utility", "Tirelire.Utility\Tirelire.Utility.csproj", "{279FE421-9D81-4AAE-A8CE-63356A5A75FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9F24BF1-8BC8-464E-B36B-2DE0C49CD3F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9F24BF1-8BC8-464E-B36B-2DE0C49CD3F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9F24BF1-8BC8-464E-B36B-2DE0C49CD3F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9F24BF1-8BC8-464E-B36B-2DE0C49CD3F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17019113-4209-4D02-B9E9-A3FB044AA9F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17019113-4209-4D02-B9E9-A3FB044AA9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17019113-4209-4D02-B9E9-A3FB044AA9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17019113-4209-4D02-B9E9-A3FB044AA9F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7216394B-D006-40E8-8396-CE3EE0AB2C42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7216394B-D006-40E8-8396-CE3EE0AB2C42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7216394B-D006-40E8-8396-CE3EE0AB2C42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7216394B-D006-40E8-8396-CE3EE0AB2C42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{279FE421-9D81-4AAE-A8CE-63356A5A75FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{279FE421-9D81-4AAE-A8CE-63356A5A75FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{279FE421-9D81-4AAE-A8CE-63356A5A75FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{279FE421-9D81-4AAE-A8CE-63356A5A75FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D8BAA4B-770F-4DB0-9EC1-1B15C2EF4060}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,133 @@
+﻿@model ShoppingCart
+<form method="post">
+    <input hidden asp-for="ProduitId"/>
+    <div class="card shadow border-0 mt-4">
+        <div class="card-header fw-bold">
+            <h1>@Model.Produit.Title</h1>
+        </div>
+        <div class="card-body">
+            <div class="py-3">
+                <div class="row">
+                    <div class="col-sm mb-3">
+                        <img id="myImg" src="@Model.Produit.ImageUrl" width="100%" class="rounded" />
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                        </div>
+                        <script>
+                            // Get the modal
+                            var modal = document.getElementById("myModal");
+                            // Get the image and insert it inside the modal - use its "alt" text as a caption
+                            var img = document.getElementById("myImg");
+                            var modalImg = document.getElementById("img01");
+                            var captionText = document.getElementById("caption");
+                            img.onclick = function(){
+                                modal.style.display = "block";
+                                modalImg.src = this.src;
+                                captionText.innerHTML = this.alt;
+                            }
+                            // Get the <span> element that closes the modal
+                            var span = document.getElementsByClassName("close")[0];
+                            // When the user clicks on <span> (x), close the modal
+                            span.onclick = function () {
+                                modal.style.display = "none";
+                            }
+                        </script>
+                    </div>
+                     <div class="col-lg-6">
+                        <div class="row ps-2">
+                            <h2 class="text-dark pb-2">
+                                Description du produit:
+                            </h2>
+                            <p>@Model.Produit.Description</p>
+                        </div>
+                        <div class="row text-center ps-2">
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-bold">Hauteur</div>
+                            </div>
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-bold">Largeur</div>
+                            </div>
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark  fw-bold">Poids</div>
+                            </div>
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-bold">Couleur</div>
+                            </div>
+                        </div>
+                        <div class="row text-center ps-2">
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-normal ">@Model.Produit.Height cm</div>
+                            </div>
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-normal ">@Model.Produit.Width cm</div>
+                            </div>
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-normal ">@Model.Produit.Poids Kg</div>
+                            </div>
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-normal ">@Model.Produit.Couleur</div>
+                            </div>
+                        </div>
+                        <div class="row text-center ps-2">
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-bold">Longueur</div>
+                            </div>
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-bold">Capacité</div>
+                            </div>
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-bold">Fabricant</div>
+                            </div>
+                        </div>
+
+                        <div class="row text-center ps-2">
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-normal ">@Model.Produit.Longueur cm</div>
+                            </div>
+                            <div class="p-1 col-3 col-lg-2 bg-white border-bottom">
+                                <div class="text-dark fw-normal ">@Model.Produit.Capacite (1€)</div>
+                            </div>
+                            <div class="accordion p-1 col-3 col-lg-2 bg-white border-bottom" id="accordionExample">
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            @Model.Produit.Fabricant?.Name
+                                        </button>
+                                    </h3>
+                                    <div id="collapseOne" class="accordion-collapse collapse hiding" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <span class="d-inline-block text-truncate">
+                                                @Model.Produit.Fabricant?.Description
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="col-sm">
+                        <h2 class="text-dark fw-bold">Prix: @Model.Produit.Prix.ToString("c")</h2>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary text-white border-0 fw-semibold"
+                                  id="inputGroup-sizing-default">
+                                Count
+                            </span>
+                            <input asp-for="Count" type="number" value="1" class="form-control text-end"
+                                   aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" />
+
+                        </div>
+                        <button type="submit"
+                                class="btn btn-primary bg-gradient  w-100 py-2 text-uppercase fw-semibold">
+                            Add to Cart
+                        </button>
+                     </div>
+
+                </div>
+            </div>
+        </div>
+        <partial name="_DetailPartial"/>
+    </div>
+</form>

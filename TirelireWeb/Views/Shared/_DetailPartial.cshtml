@@ -1,0 +1,15 @@
+﻿<h4><strong>Tirelire avec le même couleur:</strong></h4>
+<div class="card-group my-auto">
+    @foreach(var tirelire in ViewBag.tirelireWithSameColor){
+        <div class="card shadow border 0 ml-1">
+            <div class="row">
+                <div class="d-none d-lg-block col-lg-1 text-center py-2">
+                    <img src="@tirelire.ImageUrl" class="rounded" width="100%" />
+                </div>
+                <h5 class="card-title">@tirelire.Title</h5>
+                <p>@tirelire.Description</p>
+                <p><strong>Prix: @tirelire.Prix.ToString("c")</strong></p>
+            </div>
+        </div>
+    }
+</div>

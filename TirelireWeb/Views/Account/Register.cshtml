@@ -1,0 +1,62 @@
+﻿@using Tirelire.Models.ViewModel
+@model RegisterVM
+
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <form asp-action="Register" method="post">
+                    <div asp-validation-summary="ModelOnly" class=text-danger></div>
+                    <!--Name input-->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label asp-for="Name" class="form-label"></label>
+                        <input asp-for="Name" class="form-control form-control-lg" placeholder="Enter a valid email address" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label asp-for="Email" class="form-label"></label>
+                        <input asp-for="Email" type="email" class="form-control form-control-lg" placeholder="Enter a valid email address" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <!-- Password input -->
+                    <div data-mdb-input-init class="form-outline mb-3">
+                        <label asp-for="Password" class="form-label"></label>
+                        <input asp-for="Password" class="form-control form-control-lg" placeholder="Enter password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div data-mdb-input-init class="form-outline mb-3">
+                        <label asp-for="ConfirmPassword" class="form-label"></label>
+                        <input asp-for="ConfirmPassword" class="form-control form-control-lg" placeholder="Enter password" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+
+                    <div data-mdb-input-init class="form-floating mb-3">
+                        <select asp-for="Role" asp-items="@Model.RoleList" class="form-select">
+                            <option disabled selected>-Select Role-</option>
+                        </select>
+                    </div>
+                    <div class="text-center text-lg-start mt-4 pt-2">
+                        <input type="submit" value="Register" class="btn btn-primary btn-sm float-end" />
+                        <p class="small fw-bold mt-2 pt-1 mb-0">
+                            Have an account?
+                            <a asp-action="Login" class="link-danger">Login</a>
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
